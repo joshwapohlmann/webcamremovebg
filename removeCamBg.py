@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # see red_blue.py in the examples dir
 import os
 import pyfakewebcam
@@ -6,6 +7,7 @@ import cv2
 import argparse
 import time
 import logging
+import pkg_resources
 
 W = 640  # Picture width
 H = 480  # Picture height
@@ -49,7 +51,7 @@ def main():
 
     cam = cv2.VideoCapture(args.camera_id)
 
-    face_cascade = cv2.CascadeClassifier(os.path.join(os.path.dirname(__file__), 'haarcascade_frontalface_default.xml'))
+    face_cascade = cv2.CascadeClassifier(pkg_resources.resource_string(__name__, 'haarcascade_frontalface_default.xml'))
 
 
     nr = 0
